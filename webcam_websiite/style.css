@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.webcam {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 400px; /* Increase the initial width */
+  height: 300px; /* Increase the initial height */
+  resize: both; /* Allow resizing */
+  overflow: auto; /* Add scrollbars when content overflows */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
