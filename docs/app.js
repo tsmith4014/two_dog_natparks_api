@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        // Display streaming webcam data with embedded video
+        // Display streaming webcam data with embedded video and fullscreen button
         streamingWebcams.forEach((webcam) => {
           const webcamElement = document.createElement("div");
           webcamElement.classList.add("webcam", "resizeable");
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
           videoElement.allow = "autoplay"; // Autoplay video
 
           // Set an initial larger size for the webcam displays
-          videoElement.width = "800";
-          videoElement.height = "600";
+          videoElement.style.width = "1500px";
+          videoElement.style.height = "1000px";
 
           // Add an event listener for resizing the webcam displays
           webcamElement.addEventListener("mousedown", (e) => {
@@ -71,9 +71,25 @@ document.addEventListener("DOMContentLoaded", () => {
             window.addEventListener("mouseup", onMouseUp);
           });
 
+          // Add a button to toggle fullscreen
+          const fullscreenButton = document.createElement("button");
+          fullscreenButton.textContent = "Fullscreen";
+
+          // Add an event listener to toggle fullscreen
+          fullscreenButton.addEventListener("click", () => {
+            if (videoElement.requestFullscreen) {
+              videoElement.requestFullscreen();
+            } else if (videoElement.mozRequestFullScreen) {
+              videoElement.mozRequestFullScreen();
+            } else if (videoElement.webkitRequestFullscreen) {
+              videoElement.webkitRequestFullscreen();
+            }
+          });
+
           webcamElement.appendChild(titleElement);
           webcamElement.appendChild(descriptionElement);
           webcamElement.appendChild(videoElement);
+          webcamElement.appendChild(fullscreenButton);
 
           webcamsContainer.appendChild(webcamElement);
         });

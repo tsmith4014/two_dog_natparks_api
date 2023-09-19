@@ -12,13 +12,60 @@ h1 {
   margin: 10px;
   background-color: #f9f9f9;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  width: 400px; /* Increase the initial width */
-  height: 300px; /* Increase the initial height */
+  width: 1200px; /* Increase the initial width */
+  height: 600px; /* Increase the initial height */
   resize: both; /* Allow resizing */
   overflow: auto; /* Add scrollbars when content overflows */
 }
 
 img {
-  max-width: 100%;
+  max-width: 200%;
   height: auto;
+}
+
+
+/* Style the scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f0f0f0;
+}
+
+/* Style the scrollbar track */
+body::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+/* Style the scrollbar thumb */
+body::-webkit-scrollbar-thumb {
+  background-color: #0074e4;
+}
+
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #0057a3;
+  overflow: scroll; /* Always show scrollbar */
+}
+
+
+/* Style the buttons */
+button {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #0074e4;
+  color: yellow;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #0057a3;
+  transform: scale(1.1); /* Slightly larger on hover */
 }
