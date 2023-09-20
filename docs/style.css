@@ -6,16 +6,23 @@ h1 {
   text-align: center;
 }
 
+#webcams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .webcam {
   border: 1px solid #ccc;
   padding: 20px;
   margin: 10px;
   background-color: #f9f9f9;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  width: 1200px; /* Increase the initial width */
-  height: 600px; /* Increase the initial height */
-  resize: both; /* Allow resizing */
-  overflow: auto; /* Add scrollbars when content overflows */
+  width: 1000px;
+  height: 800px;
+  resize: both;
+  overflow: auto;
 }
 
 img {
@@ -23,49 +30,77 @@ img {
   height: auto;
 }
 
-
-/* Style the scrollbar */
 body::-webkit-scrollbar {
   width: 10px;
   background-color: #f0f0f0;
 }
 
-/* Style the scrollbar track */
-body::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
-
-/* Style the scrollbar thumb */
 body::-webkit-scrollbar-thumb {
   background-color: #0074e4;
-}
-
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-  background: #0057a3;
-  overflow: scroll; /* Always show scrollbar */
-}
-
-
-/* Style the buttons */
-button {
-  display: inline-block;
-  width: 200px;
-  height: 100px;
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #0074e4;
-  color: yellow;
-  border: none;
   border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Hover effect */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* This will add space between the buttons */
+  margin-top: 20px;
+  z-index: 1000;
+}
+
+.button-container button {
+  position: absolute;
+}
+
+button {
+  background-color: #0074e4;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 button:hover {
-  background-color: #0057a3;
-  transform: scale(1.1); /* Slightly larger on hover */
+  background-color: #005bb5;
+}
+
+/* Animation styles */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+.webcam:hover, #dogImageContainer img:hover, button:hover, header h1:hover {
+    cursor: url('/doggoicon.png'), auto;
+    animation: shake 0.5s;  
+    animation-iteration-count: infinite;
+}
+
+
+#dogImageContainer img {
+  border-radius: 10px; 
+  display: block;
+  margin: 20px auto;  
+}
+
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-2px, 0px) rotate(1deg); }
+  30% { transform: translate(1px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-1px, 1px) rotate(0deg); }
+  70% { transform: translate(1px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
