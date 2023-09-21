@@ -2,6 +2,11 @@
 
 Welcome to **Parks and Dogs**! This is an interactive webpage dedicated to displaying nature's beauty along with adorable canines.
 
+## Live Demo
+
+Experience the application live at [https://tsmith4014.github.io/two_dog_natparks_api/](https://tsmith4014.github.io/two_dog_natparks_api/).
+
+
 ## Features
 
 - **National Park Webcams**: Check out various webcams from national parks and immerse yourself in the beauty of nature.
