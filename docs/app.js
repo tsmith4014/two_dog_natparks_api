@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const dogImageContainer = document.getElementById("dogImageContainer");
   const dogSound = document.getElementById("dogSound");
   const buffaloSound = document.getElementById("buffaloSound");
+  const dateTimeElement = document.getElementById('dateTime');
+  const ipAddressElement = document.getElementById('ipAddress');
 
   // Ensure buttons always stay on top
   fetchWebcamsButton.style.zIndex = "1000";
@@ -175,4 +177,19 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error fetching random dog image:", error);
     }
   }
+    // Code to display date & time
+  const now = new Date();
+  const formattedDateTime = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+  dateTimeElement.textContent = "Date & Time: " + formattedDateTime;
+
+  // Fetch public IP using an API
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      ipAddressElement.textContent = "Server IP: " + data.ip;
+    })
+    .catch(error => {
+      console.error("Error fetching IP:", error);
+      ipAddressElement.textContent = "Server IP: Error fetching IP";
+    });
 });
